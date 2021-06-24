@@ -25,7 +25,6 @@ class Main extends Component {
             <div id="content">
                 <h1>Add shoes</h1>
                 <form onSubmit={(e) => {
-                    console.log('hi')
 
                     e.preventDefault()
                     const name = this.shoeName.value
@@ -77,6 +76,7 @@ class Main extends Component {
                                         }
                                     </div>
                                 </div>
+                                <p></p>
                             </div>
                         )
                     })}
