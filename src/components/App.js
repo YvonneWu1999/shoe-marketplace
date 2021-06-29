@@ -100,11 +100,17 @@ class App extends Component {
         console.log(transactionHash)
         let items = [...this.state.shoes]
         let item = { ...items[id - 1] }
-        item.owner = this.state.account
-        item.purchased = true
-        items[id - 1] = item
-        this.setState({ shoes: items })
-        this.setState({ loading: false })
+        if (item.owner === this.state.account) {
+          window.alert('transaction failed! SELLERS CANNOT BUY THEIR OWN STUFF!')
+          this.setState({ loading: false })
+        } else {
+          item.owner = this.state.account
+          item.purchased = true
+          items[id - 1] = item
+          this.setState({ shoes: items })
+          this.setState({ loading: false })
+        }
+
       }
     })
   }
